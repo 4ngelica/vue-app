@@ -7,6 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    teste
+    <div id="app">
+        {{message}}
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'First Vue template'
+            }
+        })
+
+    </script>
 </body>
 </html>
