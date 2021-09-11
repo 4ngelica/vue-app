@@ -8,13 +8,19 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
+        {{message}}<br>
+
+        {{hobbies}}
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                message: 'First Vue template'
+                message: 'First Vue template',
+                hobbies:[
+                    'Gamming',
+                    'Live streaming'
+                ]
             }
         })
 
