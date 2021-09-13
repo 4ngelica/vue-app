@@ -5,22 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./vue.js"></script>
     <title>Document</title>
+    <style>
+        .borda{
+            border:1px solid;
+        }
+
+        .main-div{
+            width: 200px;
+            height: 200px;
+        }
+
+        .secondary-div{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .green{
+            background-color: green;
+        }
+
+        .blue{
+            background-color: blue;
+        }
+
+        .red{
+            background-color: red;
+        }
+
+        .white{
+            background-color: white;
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">
-        {{message}}<br>
+        <div class="borda main-div" :class="color">
+            Color: {{color}}
+            <br>
+            X: {{x}}
+            Y: {{y}}
+        </div>
+        <hr>
+        <div @click="changeColor('green')" class="borda secondary-div"></div>
+        <div @mouseover="changeColor('blue')" @mouseout="changeColor('red')" class="borda secondary-div"></div>
+        <div @mousemove="coordinates($event)" class="borda secondary-div"></div>
 
-        {{hobbies}}
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                message: 'First Vue template',
-                hobbies:[
-                    'Gamming',
-                    'Live streaming'
-                ]
+                color: '',
+                x: 0,
+                y: 0
+            },
+            methods: {
+                changeColor(c){
+                    this.color = c
+                },
+
+                coordinates(e){
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                }
             }
         })
 
